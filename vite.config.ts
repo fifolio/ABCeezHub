@@ -16,7 +16,7 @@ export default defineConfig({
       manifest: {
         name: 'ABCeez Hub',
         short_name: 'ABCeez Hub',
-        description: 'My amazing React PWA app!',
+        description: 'Made for you!',
         theme_color: '#ffffff',
         icons: [
           {
