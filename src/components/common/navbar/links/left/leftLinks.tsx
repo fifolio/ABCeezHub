@@ -27,6 +27,48 @@ export const leftLinks: LeftLinks[] = [
     ),
   },
   {
+    route: 'services',
+    link: (
+      <Link
+        to="/"
+        onClick={() => {
+          setLeft('hub');
+          setTitle('hub');
+        }}
+      >
+        <ArrowLeft />
+      </Link>
+    ),
+  },
+  {
+    route: 'portfolio',
+    link: (
+      <Link
+        to="/"
+        onClick={() => {
+          setLeft('hub');
+          setTitle('hub');
+        }}
+      >
+        <ArrowLeft />
+      </Link>
+    ),
+  },
+    {
+    route: 'about',
+    link: (
+      <Link
+        to="/"
+        onClick={() => {
+          setLeft('hub');
+          setTitle('hub');
+        }}
+      >
+        <ArrowLeft />
+      </Link>
+    ),
+  },
+    {
     route: 'articles',
     link: (
       <Link
