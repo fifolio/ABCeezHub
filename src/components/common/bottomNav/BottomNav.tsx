@@ -6,7 +6,7 @@ import { BriefcaseBusiness, Building2, GalleryHorizontalEnd, House } from 'lucid
 // STORE 
 import { useNavbar } from "@/stores/navbar/useNavbar";
 
-export default function Footer() {
+export default function BottomNav() {
 
   const { title, setLeft, setTitle } = useNavbar();
 

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ArticleScreen, HomeScreen } from "./screens";
 
 // COMPONENTS
-import { Footer, Navbar } from "./components";
+import { BottomNav, Navbar } from "./components";
 
 function App() {
   return (
@@ -24,8 +24,8 @@ function App() {
           </Routes>
         </div>
 
-        {/* Footer */}
-        <Footer />
+        {/* BottomNav */}
+        <BottomNav />
       </div>
     </BrowserRouter>
   );
