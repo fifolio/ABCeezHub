@@ -11,9 +11,9 @@ export default function Hero() {
     const { setLeft, setTitle } = useNavbar();
 
     return (
-        <div className="bg-white border-1 shadow-md rounded-lg px-2 py-5">
+        <div className="bg-white border-1 shadow-sm rounded-lg px-2 py-5">
             <div className="mt-3 mb-6 text-center rounded-lg space-y-2">
-                <h1 className="text-2xl font-extrabold text-gray-800">{heroTexts.heroTitle}</h1>
+                <h1 className="text-2xl font-extrabold bg-gradient-to-r from-purple-600 via-blue-500 to-red-500 bg-clip-text text-transparent truncate">{heroTexts.heroTitle}</h1>
                 <p className="text-sm text-gray-700 italic">{heroTexts.heroSubtitle}</p>
             </div>
             <Link
@@ -35,8 +35,8 @@ export default function Hero() {
                             background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))'
                         }}
                     >
-                        <h1 className="text-lg font-extrabold">Article Title</h1>
-                        <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cumque quidem veritatis vitae temporibus nostrum voluptates expedita quisquam delectus natus.</p>
+                        <h1 className="text-lg font-extrabold truncate">Article Title</h1>
+                        <p className="text-sm break-words">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cumque quidem veritatis vitae temporibus nostrum voluptates expedita quisquam delectus natus.</p>
                     </div>
                 </div>
             </Link >

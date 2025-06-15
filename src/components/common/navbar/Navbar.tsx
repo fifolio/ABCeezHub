@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative bg-white shadow-lg h-20 px-3 flex items-center justify-between">
+    <nav className="bg-white shadow-lg h-20 px-3 flex items-center justify-between fixed top-0 left-0 right-0 z-50">
       <div className="flex w-full h-full items-center justify-between">
 
         <div className="space-x-4 flex items-center">

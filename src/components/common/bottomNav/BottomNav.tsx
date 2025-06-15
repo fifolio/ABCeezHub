@@ -75,7 +75,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <div className="bg-white text-gray-600 border-t-1 h-20 flex items-center justify-between">
+    <div className="bg-white text-gray-600 border-t-1 h-20 flex items-center justify-evenly fixed bottom-0 left-0 right-0 z-50">
       {links.map((item) => (
         <div key={item.route}>{item.link}</div>
       ))}
