@@ -1,15 +1,15 @@
 import { Link } from "react-router";
 
 // COMPONENTS
-import AllArticles from "./AllArticles";
+import AllProducts from "./AllProducts";
 
 // PROMPTS
-import { topArticlesTexts } from "@/prompts";
+import { portfolioOverviewTexts } from "@/prompts";
 
 // STORES
 import { useNavbar } from "@/stores/navbar/useNavbar";
 
-export default function TopArticles() {
+export default function PortfolioOverview() {
 
   const { setLeft, setTitle } = useNavbar();
 
@@ -18,21 +18,21 @@ export default function TopArticles() {
 
       <div className="flex flex-col">
         <div className="flex flex-row items-center justify-between my-2">
-          <h6 className="text-lg font-extrabold">{topArticlesTexts.topArticlesTitle}</h6>
+          <h6 className="text-lg font-extrabold capitalize">{portfolioOverviewTexts.portfolioOverviewTitle}</h6>
           <Link
-            to="/articles"
+            to="/portfolio"
             onClick={() => {
-              setLeft('articles');
-              setTitle('Articles');
+              setLeft('portfolio');
+              setTitle('portfolio');
             }}
             className="text-md text-blue-500 font-semibold hover:underline">
             See all
           </Link>
         </div>
-        <p className="text-sm text-gray-700 italic">{topArticlesTexts.topArticlesSubtitle}</p>
+        <p className="text-sm text-gray-700 italic">{portfolioOverviewTexts.portfolioOverviewSubtitle}</p>
       </div>
 
-      <AllArticles />
+      <AllProducts />
 
     </div>
   )

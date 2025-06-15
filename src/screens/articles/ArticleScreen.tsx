@@ -3,6 +3,8 @@ import { Articles } from "@/components";
 
 export default function ArticleScreen() {
   return (
-    <Articles />
+    <div className="pt-20 pb-20">
+      <Articles />
+    </div>
   )
 }

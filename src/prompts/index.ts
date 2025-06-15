@@ -1,2 +1,3 @@
 export { default as heroTexts } from './hero/heroTexts';
 export { default as topArticlesTexts } from './topArticles/topArticlesTexts';
+export { default as portfolioOverviewTexts } from './portfolioOverview/portfolioOverviewTexts';
