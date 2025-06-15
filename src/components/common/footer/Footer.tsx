@@ -20,7 +20,7 @@ export default function Footer() {
             setLeft('hub');
             setTitle('hub');
           }}
-          className={`${title === 'hub' || title === 'articles' && 'font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
+          className={`${title === 'hub' && '!font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
           <House className={`w-5 h-5 ${title === 'hub' && 'fill-blue-500'}`} />
           <span className="text-sm">Hub</span>
         </Link>
@@ -35,7 +35,7 @@ export default function Footer() {
             setLeft('services');
             setTitle('services');
           }}
-          className={`${title === 'services' && 'font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
+          className={`${title === 'services' && '!font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
           <BriefcaseBusiness className={`w-5 h-5 ${title === 'services' && 'fill-blue-500'}`} />
           <span className="text-sm">Services</span>
         </Link>
@@ -50,7 +50,7 @@ export default function Footer() {
             setLeft('portfolio');
             setTitle('portfolio');
           }}
-          className={`${title === 'portfolio' && 'font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
+          className={`${title === 'portfolio' && '!font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
           <GalleryHorizontalEnd className={`w-5 h-5 ${title === 'portfolio' && 'fill-blue-500'}`} />
           <span className="text-sm">Portfolio</span>
         </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
             setLeft('about');
             setTitle('about');
           }}
-          className={`${title === 'about' && 'font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
+          className={`${title === 'about' && '!font-extrabold text-blue-500'} flex flex-col items-center justify-center h-full w-[100px] space-y-2 font-medium`}>
           <Building2 className={`w-5 h-5 ${title === 'about' && 'fill-blue-500'}`} />
           <span className="text-sm">About</span>
         </Link>

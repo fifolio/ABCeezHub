@@ -1,0 +1,1 @@
+export { default as heroTexts } from './hero/heroTexts';

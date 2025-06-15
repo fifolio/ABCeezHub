@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// PAGES
-import { HomeScreen } from "./screens";
+// SCREENS
+import { ArticleScreen, HomeScreen } from "./screens";
 
 // COMPONENTS
 import { Footer, Navbar } from "./components";
@@ -18,6 +18,8 @@ function App() {
         <div className="flex-1 p-3 overflow-auto">
           <Routes>
             <Route index path="/" element={<HomeScreen />} />
+            <Route path="/articles/:articleId" element={<ArticleScreen />} />
+
             {/* <Route path='*' element={<Error />} /> */}
           </Routes>
         </div>
