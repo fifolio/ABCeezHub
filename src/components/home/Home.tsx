@@ -4,6 +4,7 @@ import Hero from "./hero/Hero";
 import PortfolioOverview from "./portfolioOverview/PortfolioOverview";
 import Testimonials from "./testimonials/Testimonials";
 import CtaAccess from "./ctaAccess/CtaAccess";
+import CtaServices from "./ctaServices/CtaServices";
 
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
       <CtaAccess />
       <PortfolioOverview />
       <Testimonials />
+      <CtaServices />
     </div>
   )
 }

@@ -5,4 +5,5 @@ export { default as Articles } from './articles/Articles';
 export { default as TopArticles } from './home/topArticles/TopArticles';
 export { default as PortfolioOverview } from './home/portfolioOverview/PortfolioOverview';
 export { default as Portfolio } from './portfolio/Portfolio';
-export {default as CtaAccess} from './home/ctaAccess/CtaAccess';
+export { default as CtaAccess } from './home/ctaAccess/CtaAccess';
+export { default as CtaServices } from './home/ctaServices/CtaServices';
