@@ -15,8 +15,8 @@ export default function Home() {
       <TopArticles />
       <CtaAccess />
       <PortfolioOverview />
-      <Testimonials />
       <CtaServices />
+      <Testimonials />
       <CtaAbout />
     </div>
   )

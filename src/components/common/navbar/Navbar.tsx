@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom"
-
 // STORES
 import { useNavbar } from "@/stores/navbar/useNavbar"
 
@@ -33,9 +31,9 @@ export default function Navbar() {
           {renderLeftLink()}
 
           {/* Title */}
-          <Link to="/" className="text-xl font-extrabold capitalize">
+          <p className="text-xl font-extrabold capitalize">
             {title}
-          </Link>
+          </p>
         </div>
 
         {/* Right */}
