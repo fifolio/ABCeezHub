@@ -5,6 +5,7 @@ import PortfolioOverview from "./portfolioOverview/PortfolioOverview";
 import Testimonials from "./testimonials/Testimonials";
 import CtaAccess from "./ctaAccess/CtaAccess";
 import CtaServices from "./ctaServices/CtaServices";
+import CtaAbout from "./ctaAbout/CtaAbout";
 
 export default function Home() {
 
@@ -16,6 +17,7 @@ export default function Home() {
       <PortfolioOverview />
       <Testimonials />
       <CtaServices />
+      <CtaAbout />
     </div>
   )
 }

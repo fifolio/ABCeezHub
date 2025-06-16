@@ -2,6 +2,8 @@ import { Link } from "react-router";
 
 // PROMPTS
 import { ctaServicesTexts } from "@/prompts";
+
+// STORES
 import { useNavbar } from "@/stores/navbar/useNavbar";
 
 
