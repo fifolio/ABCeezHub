@@ -1,4 +1,5 @@
-import { Link } from "react-router";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router";
 
 // ICONS
 import { BriefcaseBusiness, Building2, GalleryHorizontalEnd, House } from 'lucide-react';
@@ -9,6 +10,33 @@ import { useNavbar } from "@/stores/navbar/useNavbar";
 export default function BottomNav() {
 
   const { title, setLeft, setTitle } = useNavbar();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        setLeft('hub');
+        setTitle('hub');
+        break
+      case '/services':
+        setLeft('services');
+        setTitle('services');
+        break;
+      case '/portfolio':
+        setLeft('portfolio');
+        setTitle('portfolio');
+        break;
+      case '/about':
+        setLeft('about');
+        setTitle('about');
+        break;
+
+      default:
+        break;
+    }
+  }, [location.pathname]);
+
 
   const links = [
     {
