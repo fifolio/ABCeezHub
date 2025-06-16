@@ -1,0 +1,16 @@
+export default interface DialogInterface {
+    dialogDisplay: boolean,
+    dialogTitle: string,
+    dialogSubtitle: string,
+    dialogAddImg: boolean,
+    dialogImgUrl: string,
+    dialogDescription: string,
+    dialogCloseText: string,
+    setDialogDisplay: (dialogDisplay: boolean) => void,
+    setDialogTitle: (title: string) => void,
+    setDialogAddImg: (addImg: boolean) => void,
+    setDialogImgUrl: (imgUrl: string) => void,
+    setDialogSubtitle: (subtitle: string) => void,
+    setDialogDescription: (desc: string) => void,
+    setDialogCloseText: (closeBtnText: string) => void,
+}

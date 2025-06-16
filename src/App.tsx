@@ -4,13 +4,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ArticleScreen, HomeScreen, PortfolioScreen, SignleArticleScreen, SignleProductScreen } from "./screens";
 
 // COMPONENTS
-import { BottomNav, Navbar } from "./components";
+import { BottomNav, Dialog, Navbar } from "./components";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="flex flex-col min-h-screen bg-gray-50">
-        
+
+        {/* Dynamic Dialog */}
+        <Dialog />
+
         {/* Header */}
         <Navbar />
 

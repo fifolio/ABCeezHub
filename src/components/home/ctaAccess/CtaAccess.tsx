@@ -7,7 +7,12 @@ import ctaAccessTexts from "@/prompts/ctaAccess/ctaAccessTexts";
 // ICONS
 import { CircleUser } from "lucide-react";
 
+// STORES
+import { useDialog } from "@/stores/dialog/useDialog";
+
 export default function CtaAccess() {
+
+    const { setDialogDisplay, setDialogTitle, setDialogSubtitle, setDialogDescription, setDialogCloseText, setDialogAddImg, setDialogImgUrl } = useDialog();
 
     return (
         <div
@@ -46,7 +51,19 @@ export default function CtaAccess() {
                 <div className="flex flex-row mt-10 items-center justify-between space-x-5">
                     <Button variant="secondary" className="font-bold">Learn More</Button>
                     <p>or</p>
-                    <Button variant="secondary" className="font-bold">Join Now</Button>
+                    <Button
+                        variant="secondary"
+                        className="font-bold"
+                        onClick={() => {
+                            setDialogImgUrl('https://cdn-icons-gif.flaticon.com/10246/10246777.gif')
+                            setDialogTitle('Coming Soon')
+                            setDialogSubtitle('Something powerful is on the way')
+                            setDialogDescription("This feature, and more will be available through ABCeez Hub v2. Stay tuned, the next version is just around the corner!")
+                            setDialogCloseText('Got it')
+                            setDialogAddImg(true)
+                            setDialogDisplay(true)
+                        }}
+                    >Join Now</Button>
                 </div>
             </div>
         </div>
