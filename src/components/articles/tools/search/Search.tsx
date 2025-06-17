@@ -14,7 +14,7 @@ export default function Search() {
                 placeholder="Search articles..."
                 className="
               bg-white
-                shadow-sm
+                shadow-xs
                 pl-11
                 py-6
                 "

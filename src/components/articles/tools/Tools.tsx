@@ -4,7 +4,7 @@ import Search from "./search/Search";
 
 export default function Tools() {
     return (
-        <div className="flex flex-row items-center justify-between border-b-1 pb-3">
+        <div className="flex flex-row items-center justify-between border-b-1 pb-3 space-x-2">
             <div className="w-2/3">
                 <Search />
             </div>
