@@ -1,12 +1,22 @@
+import { useEffect } from "react";
+
 // PROMPTS
 import { portfolioTexts } from "@/prompts";
 
 
 export default function PortfolioHero() {
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+        })
+    }, [])
+
+
     return (
         <div
-            className="relative flex items-center justify-center rounded-2xl shadow-md overflow-hidden border border-white/20"
+            className="relative flex items-center justify-center rounded-lg shadow-md overflow-hidden border border-white/20"
             style={{
                 backgroundImage: `url("https://cdn.dribbble.com/userupload/25648123/file/original-93585fc46968db6b3d462e490a26a1e5.gif")`,
                 backgroundSize: 'cover',
