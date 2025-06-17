@@ -4,3 +4,4 @@ export { default as portfolioOverviewTexts } from './portfolioOverview/portfolio
 export { default as ctaAccessTexts } from './ctaAccess/ctaAccessTexts';
 export { default as ctaServicesTexts } from './ctaServices/ctaServicesTexts';
 export { default as ctaAboutTexts } from './ctaAbout/ctaAboutTexts';
+export { default as portfolioTexts } from './portfolio/portfolioTexts';
