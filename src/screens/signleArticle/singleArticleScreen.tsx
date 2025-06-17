@@ -1,8 +1,10 @@
+import { Article } from "@/components";
 
-export default function SignleArticleScreen() {
+
+export default function SignleProductScreen() {
   return (
     <div className="pt-20 pb-20">
-      <p>Single Article Screen</p>
+      <Article />
     </div>
   )
 }
