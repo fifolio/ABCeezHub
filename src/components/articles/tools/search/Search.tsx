@@ -8,7 +8,7 @@ import { SearchIcon } from "lucide-react"
 export default function Search() {
     return (
         <>
-            <SearchIcon className="absolute mt-[11.5px] ml-3 text-gray-400" size="23" />
+            <SearchIcon className="absolute mt-[13px] ml-3 text-gray-400" size="23" />
             <Input
                 type="text"
                 placeholder="Search articles..."
