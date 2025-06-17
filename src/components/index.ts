@@ -8,3 +8,4 @@ export { default as Portfolio } from './portfolio/Portfolio';
 export { default as CtaAccess } from './home/ctaAccess/CtaAccess';
 export { default as CtaServices } from './home/ctaServices/CtaServices';
 export { default as Dialog } from './common/dialog/Dialog';
+export { default as Product } from './product/Product';

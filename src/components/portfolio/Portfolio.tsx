@@ -1,6 +1,6 @@
 // UI COMPONENTS
-import AllProducts from "./AllProducts";
-import PortfolioHero from "./PortfolioHero";
+import AllProducts from "./allProducts/AllProducts";
+import PortfolioHero from "./portfolioHero/PortfolioHero";
 
 
 export default function Portfolio() {
