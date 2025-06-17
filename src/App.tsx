@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // SCREENS
-import { ArticleScreen, HomeScreen, PortfolioScreen, SignleArticleScreen, SignleProductScreen } from "./screens";
+import { ArticleScreen, HomeScreen, PortfolioScreen, ServicesScreen, SignleArticleScreen, SignleProductScreen } from "./screens";
 
 // COMPONENTS
 import { BottomNav, Dialog, Navbar } from "./components";
@@ -25,6 +25,8 @@ function App() {
             <Route path="/articles/:articleId" element={<SignleArticleScreen />} />
             <Route path="/portfolio" element={<PortfolioScreen />} />
             <Route path="/portfolio/:productId" element={<SignleProductScreen />} />
+            <Route path="/services" element={<ServicesScreen />} />
+
             {/* <Route path='*' element={<Error />} /> */}
           </Routes>
         </div>
