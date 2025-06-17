@@ -1,15 +1,16 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-
-// STORES
-import { useNavbar } from "@/stores/navbar/useNavbar";
 
 // ICONS
-import { Monitor, Smartphone } from "lucide-react";
+import {
+    LayoutTemplate,
+    Code2,
+    RefreshCw,
+    ShoppingCart,
+    BarChart3,
+    SearchCheck,
+} from "lucide-react";
 
 export default function AllServices() {
-    const { setLeft, setTitle } = useNavbar();
-
 
     useEffect(() => {
         window.scrollTo({
@@ -19,58 +20,86 @@ export default function AllServices() {
     }, [])
 
     return (
-        <div className="mt-5 flex flex-col space-y-3">
-            {[...Array(10)].map((_, i) => (
-                <Link
-                    key={i}
-                    to={`/portfolio/${i}`}
-                    onClick={() => {
-                        setLeft("portfolio");
-                        setTitle(`${i}`);
-                    }}
-                    className="flex flex-col md:flex-row rounded-md overflow-hidden shadow-md border-1 bg-white">
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                    {/* INSIGHTS */}
-                    <div className="absolute flex flex-row items-center justify-start">
+            {/* Web Design */}
+            <div className="flex gap-4 items-center border bg-white shadow-sm p-4 rounded-xl hover:shadow-md transition duration-200">
+                <div className="p-3 rounded-lg bg-pink-100 flex items-center justify-center">
+                    <LayoutTemplate className="w-6 h-6 text-pink-600" />
+                </div>
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Web Design</h3>
+                    <p className="text-sm text-gray-600">
+                        Communicate your mission via custom designs built around your brand.
+                    </p>
+                </div>
+            </div>
 
-                        <div className="text-green-700 font-bold shadow bg-white mt-3 ml-3 px-3 rounded-full py-2 w-fit">
-                            Case study available
-                        </div>
+            {/* Web Development */}
+            <div className="flex gap-4 items-center border bg-white shadow-sm p-4 rounded-xl hover:shadow-md transition duration-200">
+                <div className="p-3 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <Code2 className="w-6 h-6 text-blue-600" />
+                </div>
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Web Development</h3>
+                    <p className="text-sm text-gray-600">
+                        Welcome your online visitors with fast, responsive and secure websites.
+                    </p>
+                </div>
+            </div>
 
-                        <div className="text-orange-700 shadow bg-white mt-3 ml-3 px-3 rounded-full py-2 w-fit">
-                            <Smartphone />
-                        </div>
+            {/* Web Migration & Rebranding */}
+            <div className="flex gap-4 items-center border bg-white shadow-sm p-4 rounded-xl hover:shadow-md transition duration-200">
+                <div className="p-3 rounded-lg bg-yellow-100 flex items-center justify-center">
+                    <RefreshCw className="w-6 h-6 text-yellow-600" />
+                </div>
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Web Migration & Rebranding</h3>
+                    <p className="text-sm text-gray-600">
+                        Move to new web hosts and rebrand to new domain names with ease.
+                    </p>
+                </div>
+            </div>
 
-                        <div className="text-blue-700 shadow bg-white mt-3 ml-3 px-3 rounded-full py-2 w-fit">
-                            <Monitor />
-                        </div>
+            {/* eCommerce Solutions */}
+            <div className="flex gap-4 items-center border bg-white shadow-sm p-4 rounded-xl hover:shadow-md transition duration-200">
+                <div className="p-3 rounded-lg bg-green-100 flex items-center justify-center">
+                    <ShoppingCart className="w-6 h-6 text-green-600" />
+                </div>
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">eCommerce Solutions</h3>
+                    <p className="text-sm text-gray-600">
+                        Sell and ship worldwide and take online payments securely.
+                    </p>
+                </div>
+            </div>
 
-                    </div>
+            {/* CRO & A/B Testing */}
+            <div className="flex gap-4 items-center border bg-white shadow-sm p-4 rounded-xl hover:shadow-md transition duration-200">
+                <div className="p-3 rounded-lg bg-purple-100 flex items-center justify-center">
+                    <BarChart3 className="w-6 h-6 text-purple-600" />
+                </div>
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">CRO & A/B Testing</h3>
+                    <p className="text-sm text-gray-600">
+                        Understand your website users and deliver the best user experience they expect.
+                    </p>
+                </div>
+            </div>
 
-                    {/* PRODUCT IMAGE - covers majority */}
-                    <div
-                        className="w-full md:w-2/3 h-[200px] md:h-auto bg-gray-200"
-                        style={{
-                            backgroundImage: `url('https://placehold.co/600x400')`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                        }}
-                    ></div>
+            {/* Search Engine Optimization */}
+            <div className="flex gap-4 items-center border bg-white shadow-sm p-4 rounded-xl hover:shadow-md transition duration-200">
+                <div className="p-3 rounded-lg bg-indigo-100 flex items-center justify-center">
+                    <SearchCheck className="w-6 h-6 text-indigo-600" />
+                </div>
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Search Engine Optimization</h3>
+                    <p className="text-sm text-gray-600">
+                        Be found on relevant search results for your offered services and products.
+                    </p>
+                </div>
+            </div>
 
-                    {/* CONTENT */}
-                    <div className="flex flex-col justify-between p-4 w-full md:w-1/3">
-                        <div>
-                            <h2 className="text-lg font-semibold line-clamp-2 mb-1">
-                                Product {i} – Modern Tech Gadget
-                            </h2>
-                            <p className="text-sm text-gray-600 line-clamp-2">
-                                Sleek, powerful, and designed for everyday use. Perfect for modern lifestyles.
-                            </p>
-                        </div>
-                    </div>
-
-                </Link>
-            ))}
         </div>
     );
 }
