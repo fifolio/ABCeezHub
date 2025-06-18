@@ -11,3 +11,4 @@ export { default as Dialog } from './common/dialog/Dialog';
 export { default as Product } from './product/Product';
 export { default as Article } from './article/Article';
 export { default as Services } from './services/Services';
+export { default as About } from './about/About'; 

@@ -4,3 +4,4 @@ export { default as PortfolioScreen } from './portfolio/PortfolioScreen';
 export { default as SignleArticleScreen } from './signleArticle/singleArticleScreen';
 export { default as SignleProductScreen } from './signleProduct/singleProductScreen';
 export { default as ServicesScreen } from './services/ServicesScreen';
+export { default as AboutScreen } from './about/AboutScreen';

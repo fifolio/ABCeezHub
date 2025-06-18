@@ -6,3 +6,4 @@ export { default as ctaServicesTexts } from './ctaServices/ctaServicesTexts';
 export { default as ctaAboutTexts } from './ctaAbout/ctaAboutTexts';
 export { default as portfolioTexts } from './portfolio/portfolioTexts';
 export { default as servicesTexts } from './services/servicesTexts';
+export { default as aboutTexts } from './about/aboutTexts';
