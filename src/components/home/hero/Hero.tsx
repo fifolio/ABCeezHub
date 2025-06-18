@@ -13,7 +13,7 @@ export default function Hero() {
     return (
         <div className="bg-white border shadow-sm rounded-lg px-2 py-5">
             <div className="mt-3 mb-6 text-center rounded-lg space-y-2">
-                <h1 className="text-2xl font-extrabold bg-gradient-to-r from-purple-600 via-blue-500 to-red-500 bg-clip-text text-transparent truncate">
+                <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-600 via-blue-500 to-blue-900 bg-clip-text text-transparent truncate">
                     {heroTexts.heroTitle}
                 </h1>
                 <p className="text-sm text-gray-700 italic">{heroTexts.heroSubtitle}</p>

@@ -13,7 +13,7 @@ export default function CtaAbout() {
 
     return (
         <div
-            className="relative flex items-center justify-center h-[300px] rounded-2xl shadow-xl overflow-hidden border border-white/20"
+            className="relative flex items-center justify-center h-[300px] rounded-2xl shadow-xl overflow-hidden"
             style={{
                 backgroundImage: `url("https://images.ctfassets.net/hrltx12pl8hq/1TygllzQIoWakVyXcqqG3l/8933393059eb72767cb2a7a120e1a882/hero_image.png")`,
                 backgroundSize: 'cover',

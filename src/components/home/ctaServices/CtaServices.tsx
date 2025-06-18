@@ -20,7 +20,7 @@ export default function CtaServices() {
                 backgroundPosition: 'center',
             }}
         >
-            <div className="flex flex-col items-center justify-center w-full h-full text-white bg-white/10 backdrop-blur-xs rounded-lg p-4">
+            <div className="flex flex-col items-center justify-center w-full h-full text-white bg-white/5 backdrop-blur-xs rounded-lg p-4">
                 <div className="flex flex-row items-center justify-between mb-5">
                     <h6 className="text-4xl font-extrabold capitalize">
                         {ctaServicesTexts.ctaServicesTitle}
