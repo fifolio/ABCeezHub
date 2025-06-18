@@ -1,5 +1,6 @@
 // UI COMPONENTS
 import AboutHero from "./aboutHero/AboutHero";
+import CtaAccess from "./ctaAccess/CtaAccess";
 import OurProcess from "./ourProcess/OurProcess";
 import OurTeam from "./ourTeam/OurTeam";
 
@@ -10,6 +11,7 @@ export default function About() {
       <AboutHero />
       <OurProcess />
       <OurTeam />
+      <CtaAccess />
     </div>
   )
 }
