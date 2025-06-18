@@ -17,10 +17,30 @@ export default function AllServices() {
 
     return (
         <div className="flex flex-col space-y-4 bg-white py-2 px-2 rounded-lg border-1">
+            {/* COVER: COMPANY BUILDING */}
+            <div
+                className="relative min-h-[320px] flex items-center justify-center rounded-lg shadow-md overflow-hidden border border-white/20"
+                style={{
+                    backgroundImage: `url("/assets/aboutScreen/ABCeezTeamWorking.png")`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}>
+            </div>
 
-            <h2 className="text-2xl font-bold text-center bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-lg shadow text-white py-4">
-                We Use the 6-D Process
-            </h2>
+            <div
+                className="relative flex items-center justify-center rounded-lg shadow-md overflow-hidden border-white/20"
+                style={{
+                    backgroundImage: `url("https://img.freepik.com/free-photo/aesthetic-background-with-light-sunset-projector-lamp_53876-108129.jpg?semt=ais_hybrid&w=740")`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }}>
+
+                <div className="relative z-10 flex flex-col items-center text-center text-white bg-white/10 backdrop-blur-lg rounded-lg px-6 pt-3 w-full h-full ">
+                    <h6 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-3 capitalize drop-shadow-md">
+                        We Use the 6-D Process
+                    </h6>
+                </div>
+            </div>
 
             {/* Step 01 - Discover */}
             <div className="flex gap-4 items-start bg-white border-l-4 border-pink-500 rounded-md p-5">
