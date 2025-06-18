@@ -17,15 +17,6 @@ export default function AllServices() {
 
     return (
         <div className="flex flex-col space-y-4 bg-white py-2 px-2 rounded-lg border-1">
-            {/* COVER: COMPANY BUILDING */}
-            <div
-                className="relative min-h-[320px] flex items-center justify-center rounded-lg shadow-md overflow-hidden border border-white/20"
-                style={{
-                    backgroundImage: `url("/assets/aboutScreen/ABCeezTeamWorking.png")`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}>
-            </div>
 
             <div
                 className="relative flex items-center justify-center rounded-lg shadow-md overflow-hidden border-white/20"
