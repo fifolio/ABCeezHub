@@ -39,7 +39,7 @@ export default function OurTeam() {
 
                 <div className="relative z-10 flex flex-col items-center text-center text-white bg-white/10 backdrop-blur-lg rounded-lg px-6 pt-3 w-full h-full ">
                     <h6 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-3 capitalize drop-shadow-md">
-                        Meet the Team
+                        The Minds Behind Success
                     </h6>
                 </div>
             </div>
