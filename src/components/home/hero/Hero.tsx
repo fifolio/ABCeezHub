@@ -50,7 +50,7 @@ export default function Hero() {
             </div>
 
             <Link
-                to={`/article/${article?.$id}`}
+                to={`/articles/${article?.$id}`}
                 onClick={() => {
                     setLeft("articles");
                     setTitle(`${article?.title}`);
