@@ -15,14 +15,14 @@ import { GET_featuredArticle } from "@/backend/services/articles/GET_featuredArt
 import { Skeleton_Hero } from "@/skeletons";
 
 // INTERFACES
-import type { Article } from "@/interfaces";
+import type { Inter_Article } from "@/interfaces";
 
 
 export default function Hero() {
     const { setLeft, setTitle } = useNavbar();
     const { sk_Hero, setSk_Hero } = useSk_Hero();
 
-    const [article, setArticle] = useState<Article | null>(null);
+    const [article, setArticle] = useState<Inter_Article | null>(null);
 
     useEffect(() => {
         GET_featuredArticle()
