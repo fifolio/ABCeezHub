@@ -6,7 +6,7 @@ export async function GET_featuredArticle() {
         `${import.meta.env.VITE_BACKEND_MAIN_DATABASE}`,
         `${import.meta.env.VITE_BACKEND_FEATURED_ARTICLE_COLL}`
     ).then((res) => {
-        return res
+        return res.documents[0]
     }).catch((err) => {
         return err
     })
