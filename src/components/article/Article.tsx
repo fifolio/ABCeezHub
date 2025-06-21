@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 // ICONS
 import { CalendarDays, Clock, Tag, User } from "lucide-react";
@@ -11,13 +12,15 @@ import { useSk_Article } from "@/stores/skeletons/ArticleScreen/sk_Article";
 import { useNavbar } from "@/stores/navbar/useNavbar";
 
 // APIs
-import { GET_featuredArticle } from "@/backend/services/articles/GET_featuredArticle";
+import { GET_Article } from "@/backend/services/articles/GET_Article";
 
 // INTERFACES
 import type { Inter_Article } from "@/interfaces";
 
 
 export default function Product() {
+
+  const { articleID } = useParams();
 
   const { setLeft, setTitle } = useNavbar();
 
@@ -32,12 +35,13 @@ export default function Product() {
       left: 0,
     });
 
-    GET_featuredArticle()
+    GET_Article(articleID as string)
       .then((res) => {
         setArticle(res);
         setSk_Article(false);
         setLeft("articles");
         setTitle(`${res.title}`);
+        console.log(res)
       })
       .catch((err) => {
         console.error("Error fetching featured article:", err);
