@@ -14,6 +14,7 @@ import { GET_allArticles } from "@/backend/services/articles/GET_allArticles";
 // TYPES
 import type { Models } from "node_modules/appwrite/types/client";
 
+import { HashLoader } from "react-spinners";
 
 export default function AllArticles() {
 
@@ -22,16 +23,31 @@ export default function AllArticles() {
 
     const [articles, setArticles] = useState<Models.Document[]>([]);
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         GET_allArticles()
             .then((res) => {
                 setArticles(res);
                 setSk_AllArticles(false);
+                setLoading(false);  
             })
             .catch((err) => {
                 console.error("Error fetching featured article:", err);
             })
     }, []);
+
+    if (loading) return (
+        <div className="flex items-center justify-center h-50">
+            <HashLoader
+                color="#4F46E5"
+                loading={true}
+                size={50}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+            />
+        </div>
+    );
 
     return (
         <ScrollArea className="w-full whitespace-nowrap mt-2 pt-2 bg-white">
