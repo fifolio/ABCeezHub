@@ -19,7 +19,7 @@ export async function GET_allArticles(sortBy?: string, searchTerm?: string) {
     }
 
     // Build the query list
-    const queries = [order, Query.contains('title', `${searchTerm}`)];
+    const queries = [order];
 
     if (searchTerm && searchTerm.trim() !== '') {
         queries.push(Query.contains('title', searchTerm.trim()));
@@ -31,7 +31,7 @@ export async function GET_allArticles(sortBy?: string, searchTerm?: string) {
             import.meta.env.VITE_BACKEND_ARTICLES_COLL,
             queries
         );
-        return res.documents as unknown;
+        return res.documents;
     } catch (err) {
         console.error("Error in GET_allArticles:", err);
         return [];

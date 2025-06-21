@@ -10,7 +10,7 @@ export async function GET_featuredArticle() {
             import.meta.env.VITE_BACKEND_ARTICLES_COLL,
             [Query.equal('featured', true)]
         );
-        return res.documents[0];
+        return res.documents[0];;
     } catch (err) {
         console.error("Error in GET_featuredArticle:", err);
         return [];

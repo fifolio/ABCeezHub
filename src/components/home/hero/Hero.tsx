@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -27,6 +28,8 @@ export default function Hero() {
     useEffect(() => {
         GET_featuredArticle()
             .then((res) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 setArticle(res);
                 setSk_Hero(false);
             })
