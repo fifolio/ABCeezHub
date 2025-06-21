@@ -25,7 +25,20 @@ export default function AllArticles() {
     useEffect(() => {
         GET_allArticles()
             .then((res) => {
-                setArticles(res as unknown as Inter_Articles[]);
+                const formatted = res.map((doc) => ({
+                    $id: doc.$id,
+                    title: doc.title,
+                    content: doc.content,
+                    hook: doc.hook,
+                    coverURL: doc.coverURL,
+                    createdAt: doc.createdAt,
+                    updatedAt: doc.updatedAt,
+                    $createdAt: doc.$createdAt,
+                    author: doc.author,
+                    readingTime: doc.readingTime,
+                    category: doc.category,
+                }));
+                setArticles(formatted);
                 setSk_AllArticles(false);
             })
             .catch((err) => {
