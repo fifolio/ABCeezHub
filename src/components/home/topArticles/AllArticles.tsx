@@ -25,9 +25,7 @@ export default function AllArticles() {
     useEffect(() => {
         GET_allArticles()
             .then((res) => {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                setArticles(res);
+                setArticles(res as unknown as Inter_Articles[]);
                 setSk_AllArticles(false);
             })
             .catch((err) => {
@@ -69,6 +67,5 @@ export default function AllArticles() {
             </div>
             <ScrollBar orientation="horizontal" />
         </ScrollArea>
-
     )
 }
