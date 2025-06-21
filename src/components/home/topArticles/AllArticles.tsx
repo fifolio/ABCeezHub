@@ -25,28 +25,13 @@ export default function AllArticles() {
     useEffect(() => {
         GET_allArticles()
             .then((res) => {
-                const formatted: Inter_Articles[] = res.map((doc) => ({
-                    $id: doc.$id,
-                    $createdAt: doc.$createdAt,
-                    title: doc.title,
-                    content: doc.content,
-                    hook: doc.hook,
-                    coverURL: doc.coverURL,
-                    createdAt: doc.createdAt,
-                    updatedAt: doc.updatedAt,
-                    author: doc.author,
-                    readingTime: doc.readingTime,
-                    category: doc.category,
-                }));
-
-                setArticles(formatted);
+                setArticles(res as unknown as Inter_Articles[]);
                 setSk_AllArticles(false);
             })
             .catch((err) => {
                 console.error("Error fetching featured article:", err);
-            });
+            })
     }, []);
-
 
     return (
         <ScrollArea className="w-full whitespace-nowrap mt-2 pt-2 bg-white">
