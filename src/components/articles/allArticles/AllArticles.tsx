@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavbar } from "@/stores/navbar/useNavbar";
 import { useSk_AllArticles } from "@/stores/skeletons/AllArticles/sk_AllArticles";
 import { useSortBy } from "@/stores/filters/AllArticles/Tools/sortBy";
+import { useSearch } from "@/stores/filters/AllArticles/Tools/search";
 
 // SKELETONS
 import { Skeleton_AllArticles } from "@/skeletons";
@@ -19,9 +20,10 @@ export default function AllArticles() {
     const { setLeft, setTitle } = useNavbar();
     const { sk_AllArticles, setSk_AllArticles } = useSk_AllArticles();
 
-    const [articles, setArticles] = useState<Inter_Articles[] | null>(null);
+    const [articles, setArticles] = useState<Inter_Articles[]>([]);
 
     const { sortBy } = useSortBy();
+    const { searchTerm } = useSearch();
 
     useEffect(() => {
         window.scrollTo({
@@ -31,21 +33,23 @@ export default function AllArticles() {
 
         setSk_AllArticles(true)
 
-        GET_allArticles(sortBy)
+        GET_allArticles(sortBy, searchTerm)
             .then((res) => {
-                setArticles(res);
+                setArticles(res as Inter_Articles[]);
                 setSk_AllArticles(false);
             })
             .catch((err) => {
                 console.error("Error fetching articles:", err);
             })
-    }, [sortBy])
 
-    if (sk_AllArticles || !articles) return (<Skeleton_AllArticles />)
+        console.log(articles)
+    }, [sortBy, searchTerm])
+
+    if (sk_AllArticles || articles.length < 0) return (<Skeleton_AllArticles />)
 
     return (
         <div className="mt-3 flex flex-col space-y-3">
-            {articles.map((article: Inter_Articles, i: number) => (
+            {articles.length > 0 ? articles.map((article: Inter_Articles, i: number) => (
                 <Link
                     to={`/articles/${article.$id}`}
                     onClick={() => {
@@ -76,7 +80,11 @@ export default function AllArticles() {
                         <span className="text-xs text-gray-400 mt-auto">Published: {new Date(article.$createdAt).toLocaleDateString("en-US")}</span>
                     </div>
                 </Link>
-            ))}
+            )) : (
+                <div className="flex items-center justify-center h-64">
+                    <p className="text-gray-500 text-lg font-bold">No articles found.</p>
+                </div>
+            )}
         </div>
     );
 }

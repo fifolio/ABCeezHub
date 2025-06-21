@@ -1,10 +1,10 @@
-import { database } from "@/backend/configs/config";
 import { Query } from "appwrite";
+import { database } from "@/backend/configs/config";
 
 // This function retrieves all articles from the database
-export async function GET_allArticles(sortBy?: string) {
+export async function GET_allArticles(sortBy?: string, searchTerm?: string) {
 
-    // Check upon the type of orders from the list below that equals to that got received
+    // Determine the sort order
     let order;
     switch (sortBy) {
         case 'newest':
@@ -18,19 +18,22 @@ export async function GET_allArticles(sortBy?: string) {
             break;
     }
 
-    const queries = [
-        order
-    ];
+    // Build the query list
+    const queries = [order, Query.contains('title', `${searchTerm}`)];
 
-    const results = await database.listDocuments(
-        `${import.meta.env.VITE_BACKEND_MAIN_DATABASE}`,
-        `${import.meta.env.VITE_BACKEND_ARTICLES_COLL}`,
-        queries
-    ).then((res) => {
-        return res.documents
-    }).catch((err) => {
-        return err
-    })
+    if (searchTerm && searchTerm.trim() !== '') {
+        queries.push(Query.contains('title', searchTerm.trim()));
+    }
 
-    return results
+    try {
+        const res = await database.listDocuments(
+            import.meta.env.VITE_BACKEND_MAIN_DATABASE,
+            import.meta.env.VITE_BACKEND_ARTICLES_COLL,
+            queries
+        );
+        return res.documents as unknown;
+    } catch (err) {
+        console.error("Error in GET_allArticles:", err);
+        return [];
+    }
 }

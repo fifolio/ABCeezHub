@@ -6,3 +6,4 @@ export type { default as sk_Article_State } from './skeletons/ArticleScreen/sk_A
 export type { default as sk_AllArticles_State } from './skeletons/AllArticles/sk_AllArticles_State';
 export type { default as Inter_Articles } from './allArticles/Inter_Articles';
 export type { default as SortByInterface } from './allArticles/Tools/SortByInterface';
+export type { default as SearchInterface } from './allArticles/Tools/SearchInterface';
