@@ -13,14 +13,14 @@ import { Skeleton_AllArticles } from "@/skeletons";
 // APIs
 import { GET_allArticles } from "@/backend/services/articles/GET_allArticles";
 
-// INTERFACES
-import type { Inter_Articles } from "@/interfaces";
+// TYPES
+import type { Models } from "node_modules/appwrite/types/client";
 
 export default function AllArticles() {
     const { setLeft, setTitle } = useNavbar();
     const { sk_AllArticles, setSk_AllArticles } = useSk_AllArticles();
 
-    const [articles, setArticles] = useState<Inter_Articles[]>([]);
+    const [articles, setArticles] = useState<Models.Document[]>([]);
 
     const { sortBy } = useSortBy();
     const { searchTerm } = useSearch();
@@ -35,7 +35,7 @@ export default function AllArticles() {
 
         GET_allArticles(sortBy, searchTerm)
             .then((res) => {
-                setArticles(res as Inter_Articles[]);
+                setArticles(res);
                 setSk_AllArticles(false);
             })
             .catch((err) => {
@@ -48,7 +48,7 @@ export default function AllArticles() {
 
     return (
         <div className="mt-3 flex flex-col space-y-3">
-            {articles.length > 0 ? articles.map((article: Inter_Articles, i: number) => (
+            {articles.length > 0 ? articles.map((article, i: number) => (
                 <Link
                     to={`/articles/${article.$id}`}
                     onClick={() => {

@@ -10,10 +10,9 @@ import { useSk_AllArticles } from "@/stores/skeletons/AllArticles/sk_AllArticles
 
 // APIs
 import { GET_allArticles } from "@/backend/services/articles/GET_allArticles";
-import type { Models } from "node_modules/appwrite/types/client";
 
-// INTERFACES
-// import type { Inter_Articles } from "@/interfaces";
+// TYPES
+import type { Models } from "node_modules/appwrite/types/client";
 
 
 export default function AllArticles() {
@@ -26,7 +25,7 @@ export default function AllArticles() {
     useEffect(() => {
         GET_allArticles()
             .then((res) => {
-                setArticles(res as Models.Document[]);
+                setArticles(res);
                 setSk_AllArticles(false);
             })
             .catch((err) => {
