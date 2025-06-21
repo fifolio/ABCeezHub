@@ -9,11 +9,21 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+// STORES
+import { useSortBy } from "@/stores/filters/AllArticles/Tools/sortBy"
+
 
 export default function SortBy() {
+
+  const { setSortBy } = useSortBy();
+
   return (
     <>
-      <Select>
+      <Select
+        onValueChange={(value) => {
+          setSortBy(value)
+        }}
+      >
         <SelectTrigger className="bg-white shadow-xs py-6 w-full">
           <SelectValue placeholder="Sort By" />
         </SelectTrigger>

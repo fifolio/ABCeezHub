@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // STORES
 import { useNavbar } from "@/stores/navbar/useNavbar";
 import { useSk_AllArticles } from "@/stores/skeletons/AllArticles/sk_AllArticles";
+import { useSortBy } from "@/stores/filters/AllArticles/Tools/sortBy";
 
 // SKELETONS
 import { Skeleton_AllArticles } from "@/skeletons";
@@ -20,13 +21,17 @@ export default function AllArticles() {
 
     const [articles, setArticles] = useState<Inter_Articles[] | null>(null);
 
+    const { sortBy } = useSortBy();
+
     useEffect(() => {
         window.scrollTo({
             top: 0,
             left: 0,
         })
 
-        GET_allArticles()
+        setSk_AllArticles(true)
+
+        GET_allArticles(sortBy)
             .then((res) => {
                 setArticles(res);
                 setSk_AllArticles(false);
@@ -34,7 +39,7 @@ export default function AllArticles() {
             .catch((err) => {
                 console.error("Error fetching articles:", err);
             })
-    }, [])
+    }, [sortBy])
 
     if (sk_AllArticles || !articles) return (<Skeleton_AllArticles />)
 
