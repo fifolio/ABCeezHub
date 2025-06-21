@@ -41,8 +41,7 @@ export default function AllArticles() {
             .catch((err) => {
                 console.error("Error fetching articles:", err);
             })
-
-        console.log(articles)
+            
     }, [sortBy, searchTerm])
 
     if (sk_AllArticles || articles.length < 0) return (<Skeleton_AllArticles />)
@@ -77,7 +76,7 @@ export default function AllArticles() {
                         <p className="text-sm text-gray-600 line-clamp-2">
                             {article.content}
                         </p>
-                        <span className="text-xs text-gray-400 mt-auto">Published: {new Date(article.$createdAt).toLocaleDateString("en-US")}</span>
+                        <span className="text-xs text-gray-400 mt-auto">Published: {article.$createdAt.split("T")[0]}</span>
                     </div>
                 </Link>
             )) : (

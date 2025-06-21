@@ -41,7 +41,6 @@ export default function Product() {
         setSk_Article(false);
         setLeft("articles");
         setTitle(`${res.title}`);
-        console.log(res)
       })
       .catch((err) => {
         console.error("Error fetching featured article:", err);
@@ -86,7 +85,7 @@ export default function Product() {
           <div className="text-center">
             <span className="text-xs font-bold block">Published</span>
             <span className="text-xs font-medium text-gray-700">
-              {article.$createdAt.split("T")[0]}
+              {article.$createdAt?.split("T")[0] ?? "Unknown date"}
             </span>
           </div>
         </div>
@@ -119,11 +118,11 @@ export default function Product() {
       </div>
 
       {/* ALL DETAILS */}
-      <div key={article.$id} className="bg-white mt-2 border-1 rounded-md p-4">
+      <div key={article.$id} className="bg-white mt-2 border-1 rounded-md p-4 break-words">
         <h2 className="text-black text-[22px] font-bold py-1 capitalize">
           {article.title}
         </h2>
-        <p className="text-gray-800 text-base font-normal py-2">
+        <p className="text-gray-800 text-base font-normal py-2 ">
           {article.content}
         </p>
       </div>
