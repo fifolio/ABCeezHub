@@ -10,9 +10,10 @@ import { useSk_AllArticles } from "@/stores/skeletons/AllArticles/sk_AllArticles
 
 // APIs
 import { GET_allArticles } from "@/backend/services/articles/GET_allArticles";
+import type { Models } from "node_modules/appwrite/types/client";
 
 // INTERFACES
-import type { Inter_Articles } from "@/interfaces";
+// import type { Inter_Articles } from "@/interfaces";
 
 
 export default function AllArticles() {
@@ -20,12 +21,12 @@ export default function AllArticles() {
     const { setLeft, setTitle } = useNavbar();
     const { setSk_AllArticles } = useSk_AllArticles();
 
-    const [articles, setArticles] = useState<Inter_Articles[] | null>(null);
+    const [articles, setArticles] = useState<Models.Document[]>([]);
 
     useEffect(() => {
         GET_allArticles()
             .then((res) => {
-                setArticles(res as unknown as Inter_Articles[]);
+                setArticles(res as Models.Document[]);
                 setSk_AllArticles(false);
             })
             .catch((err) => {
