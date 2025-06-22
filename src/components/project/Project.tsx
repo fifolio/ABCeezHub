@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Check } from "lucide-react";
 
 
-export default function Product() {
+export default function Project() {
 
   const sections = [
     {

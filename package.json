@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/assets/icons/MainLogo.png"
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/assets/icons/pwa-64x64.png"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",

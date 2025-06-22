@@ -7,7 +7,7 @@ import { useNavbar } from "@/stores/navbar/useNavbar";
 // ICONS
 import { Monitor, Smartphone } from "lucide-react";
 
-export default function AllProducts() {
+export default function AllProjects() {
     const { setLeft, setTitle } = useNavbar();
 
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
 // COMPONENTS
-import AllProducts from "./AllProducts";
+import AllProjects from "./AllProjects";
 
 // PROMPTS
 import { portfolioOverviewTexts } from "@/prompts";
@@ -32,7 +32,7 @@ export default function PortfolioOverview() {
         <p className="text-sm text-gray-700 italic">{portfolioOverviewTexts.portfolioOverviewSubtitle}</p>
       </div>
 
-      <AllProducts />
+      <AllProjects />
 
     </div>
   )
