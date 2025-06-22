@@ -54,10 +54,10 @@ export default function AllProjects() {
                         return (
                             <Link
                                 key={project.$id}
-                                to={`/projects/${project.$id}`}
+                                to={`/portfolio/${project.$id}`}
                                 onClick={() => {
-                                    setLeft('projects');
-                                    setTitle(project.title);
+                                    setLeft("portfolio");
+                                    setTitle(`${project.title}`);
                                 }}
                                 className="w-[200px] flex-shrink-0">
                                 <div className="border-1 rounded-lg overflow-hidden">

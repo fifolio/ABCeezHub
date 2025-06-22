@@ -7,3 +7,4 @@ export type { default as sk_AllArticles_State } from './skeletons/AllArticles/sk
 export type { default as SortByInterface } from './allArticles/Tools/SortByInterface';
 export type { default as SearchInterface } from './allArticles/Tools/SearchInterface';
 export type { default as sk_AllProjects_State } from './portfolio/sk_AllProjects_State';
+export type { default as sk_Project_State } from './skeletons/ProjectScreen/sk_Project_State';

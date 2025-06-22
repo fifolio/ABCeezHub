@@ -42,11 +42,7 @@ export default function AllProjects() {
 
     }, [])
 
-    useEffect(() => {
-        console.log(projects)
-
-    }, [projects])
-
+    
     if (sk_AllProjects || projects.length < 0) return (<Skeleton_AllProjects />)
 
     return (
