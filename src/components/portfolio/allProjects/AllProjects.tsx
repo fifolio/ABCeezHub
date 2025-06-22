@@ -42,7 +42,7 @@ export default function AllProjects() {
 
     }, [])
 
-    
+
     if (sk_AllProjects || projects.length < 0) return (<Skeleton_AllProjects />)
 
     return (
@@ -60,9 +60,11 @@ export default function AllProjects() {
                     {/* INSIGHTS */}
                     <div className="absolute flex flex-row items-center justify-start">
 
-                        <div className="text-green-700 font-bold shadow bg-white mt-3 ml-3 px-3 rounded-full py-2 w-fit">
-                            Case study available
-                        </div>
+                        {project.hasCaseStudy && (
+                            <div className="text-green-700 font-bold shadow bg-white mt-3 ml-3 px-3 rounded-full py-2 w-fit">
+                                Case study available
+                            </div>
+                        )}
 
                         {project.features.includes("Mobile_App") && (
                             <div className="text-orange-700 shadow bg-white mt-3 ml-3 px-3 rounded-full py-2 w-fit">

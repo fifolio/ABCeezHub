@@ -8,3 +8,4 @@ export type { default as SortByInterface } from './allArticles/Tools/SortByInter
 export type { default as SearchInterface } from './allArticles/Tools/SearchInterface';
 export type { default as sk_AllProjects_State } from './portfolio/sk_AllProjects_State';
 export type { default as sk_Project_State } from './skeletons/ProjectScreen/sk_Project_State';
+export type { default as sk_Testimonials } from './skeletons/HomeScreen/sk_Testimonials_State';

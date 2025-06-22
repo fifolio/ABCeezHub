@@ -134,45 +134,60 @@ export default function Project() {
         })}
       </div>
 
-      {/* OVERVIEW */}
-      <div className="bg-white mt-2 border-1 rounded-md p-4">
-        <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-          overview
-        </h2>
-        <p className="text-gray-800 text-base font-normal py-2">
-          {project.overview}
-        </p>
-      </div>
 
-      {/* CHALLENGES */}
-      <div className="bg-white mt-2 border-1 rounded-md p-4">
-        <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-          Challenges
-        </h2>
-        <p className="text-gray-800 text-base font-normal py-2">
-          {project.challenges}
-        </p>
-      </div>
+      {project.hasCaseStudy ? (
+        <>
+          {/* OVERVIEW */}
+          <div className="bg-white mt-2 border-1 rounded-md p-4">
+            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+              overview
+            </h2>
+            <p className="text-gray-800 text-base font-normal py-2">
+              {project.overview}
+            </p>
+          </div>
 
-      {/* DESIGN APPROACH */}
-      <div className="bg-white mt-2 border-1 rounded-md p-4">
-        <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-          Design Approach
-        </h2>
-        <p className="text-gray-800 text-base font-normal py-2 break-words">
-          {project.design}
-        </p>
-      </div>
+          {/* CHALLENGES */}
+          <div className="bg-white mt-2 border-1 rounded-md p-4">
+            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+              Challenges
+            </h2>
+            <p className="text-gray-800 text-base font-normal py-2">
+              {project.challenges}
+            </p>
+          </div>
 
-      {/* RESULTS */}
-      <div className="bg-white mt-2 border-1 rounded-md p-4">
-        <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-          Results
-        </h2>
-        <p className="text-gray-800 text-base font-normal py-2 break-words">
-          {project.results}
-        </p>
-      </div>
+          {/* DESIGN APPROACH */}
+          <div className="bg-white mt-2 border-1 rounded-md p-4">
+            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+              Design Approach
+            </h2>
+            <p className="text-gray-800 text-base font-normal py-2 break-words">
+              {project.design}
+            </p>
+          </div>
+
+          {/* RESULTS */}
+          <div className="bg-white mt-2 border-1 rounded-md p-4">
+            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+              Results
+            </h2>
+            <p className="text-gray-800 text-base font-normal py-2 break-words">
+              {project.results}
+            </p>
+          </div>
+        </>
+      ) : (
+        <div className="bg-yellow-50 mt-2 border-1 rounded-md p-4">
+          <h2 className="text-yellow-900 text-lg font-bold py-1 capitalize">
+            Case Study Unavailable
+          </h2>
+          <p className="text-yellow-800 text-base font-normal py-2">
+            This project does not have a detailed case study ready yet.
+          </p>
+        </div>
+)}
+
     </>
 
   );
