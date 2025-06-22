@@ -19,7 +19,7 @@ export default function AboutHero() {
 
             {/* OUR STORY */}
             <div
-                className="relative flex items-center justify-center rounded-lg shadow-md overflow-hidden border border-white/20"
+                className="relative flex items-center justify-center rounded-lg shadow-md overflow-hidden"
                 style={{
                     backgroundImage: `url("https://img.freepik.com/free-photo/colorful-gradient-background-with-neon-led-light_53876-124191.jpg?semt=ais_hybrid&w=740")`,
                     backgroundSize: 'cover',
