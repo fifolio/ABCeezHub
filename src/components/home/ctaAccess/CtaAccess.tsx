@@ -49,7 +49,19 @@ export default function CtaAccess() {
                     {ctaAccessTexts.ctaAccessSubtitle}
                 </p>
                 <div className="flex flex-row mt-10 items-center justify-between space-x-5">
-                    <Button variant="secondary" className="font-bold">Learn More</Button>
+                    <Button
+                        variant="secondary"
+                        className="font-bold"
+                        onClick={() => {
+                            setDialogImgUrl('https://cdn-icons-gif.flaticon.com/10246/10246777.gif')
+                            setDialogTitle('Coming Soon')
+                            setDialogSubtitle('Something powerful is on the way')
+                            setDialogDescription("This feature, and more will be available through ABCeez Hub v2. Stay tuned, the next version is just around the corner!")
+                            setDialogCloseText('Got it')
+                            setDialogAddImg(true)
+                            setDialogDisplay(true)
+                        }}
+                    >Learn More</Button>
                     <p>or</p>
                     <Button
                         variant="secondary"
