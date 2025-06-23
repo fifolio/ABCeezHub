@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 
 // ICONS
 import { Check, CheckCircle, ExternalLink, MoreHorizontal } from "lucide-react";
@@ -27,6 +27,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ScrollArea } from "../ui/scroll-area";
+import { Button } from "../ui/button";
 
 
 export default function Project() {
@@ -57,6 +58,7 @@ export default function Project() {
         console.error("Error fetching featured article:", err);
       })
   }, []);
+
 
 
   if (sk_Project || !project) return <Skeleton_Project />;
@@ -185,10 +187,12 @@ export default function Project() {
       {/* EXTERNAL URL */}
       {project.externalURL !== null && (
         <div className="bg-white mt-2 text-center py-8 border-1 rounded-md p-4 ">
-          <Link to={project.externalURL} target="_blank" className="flex justify-around space-x-4 px-4 py-3 text-white bg-gray-600 border shadow-md font-normal rounded-full break-words">
+          <Button
+            onClick={() => navigator.clipboard.writeText(`${project.externalURL}`)}
+            variant="default" className="flex justify-around space-x-4 px-4 py-3 text-white bg-gray-600 border shadow-md font-normal rounded-full break-words">
             {project.externalURL}
             <ExternalLink className="text-white" />
-          </Link>
+          </Button>
         </div>
       )}
 
