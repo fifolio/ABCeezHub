@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 
 // ICONS
-import { Check, CheckCircle, MoreHorizontal } from "lucide-react";
+import { Check, CheckCircle, ExternalLink, MoreHorizontal } from "lucide-react";
 
 // SKELETONS
 import { Skeleton_Project } from "@/skeletons";
@@ -134,50 +134,66 @@ export default function Project() {
         })}
       </div>
 
+      {/* OVERVIEW */}
+      {project.overview !== null && (
+        <div className="bg-white mt-2 border-1 rounded-md p-4">
+          <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+            overview
+          </h2>
+          <p className="text-gray-800 text-base font-normal py-2">
+            {project.overview}
+          </p>
+        </div>
+      )}
 
-      {project.hasCaseStudy ? (
-        <>
-          {/* OVERVIEW */}
-          <div className="bg-white mt-2 border-1 rounded-md p-4">
-            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-              overview
-            </h2>
-            <p className="text-gray-800 text-base font-normal py-2">
-              {project.overview}
-            </p>
-          </div>
+      {/* CHALLENGES */}
+      {project.challenges !== null && (
+        <div className="bg-white mt-2 border-1 rounded-md p-4">
+          <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+            Challenges
+          </h2>
+          <p className="text-gray-800 text-base font-normal py-2">
+            {project.challenges}
+          </p>
+        </div>
+      )}
 
-          {/* CHALLENGES */}
-          <div className="bg-white mt-2 border-1 rounded-md p-4">
-            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-              Challenges
-            </h2>
-            <p className="text-gray-800 text-base font-normal py-2">
-              {project.challenges}
-            </p>
-          </div>
+      {/* DESIGN APPROACH */}
+      {project.design !== null && (
+        <div className="bg-white mt-2 border-1 rounded-md p-4">
+          <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+            Design Approach
+          </h2>
+          <p className="text-gray-800 text-base font-normal py-2 break-words">
+            {project.design}
+          </p>
+        </div>
+      )}
 
-          {/* DESIGN APPROACH */}
-          <div className="bg-white mt-2 border-1 rounded-md p-4">
-            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-              Design Approach
-            </h2>
-            <p className="text-gray-800 text-base font-normal py-2 break-words">
-              {project.design}
-            </p>
-          </div>
+      {/* RESULTS */}
+      {project.results !== null && (
+        <div className="bg-white mt-2 border-1 rounded-md p-4">
+          <h2 className="text-black text-[22px] font-bold py-1 capitalize">
+            Results
+          </h2>
+          <p className="text-gray-800 text-base font-normal py-2 break-words">
+            {project.results}
+          </p>
+        </div>
+      )}
 
-          {/* RESULTS */}
-          <div className="bg-white mt-2 border-1 rounded-md p-4">
-            <h2 className="text-black text-[22px] font-bold py-1 capitalize">
-              Results
-            </h2>
-            <p className="text-gray-800 text-base font-normal py-2 break-words">
-              {project.results}
-            </p>
-          </div>
-        </>
-      ) : (
+      {/* EXTERNAL URL */}
+      {project.externalURL !== null && (
+        <div className="bg-white mt-2 text-center py-8 border-1 rounded-md p-4 ">
+          <Link to={project.externalURL} target="_blank" className="flex justify-around space-x-4 px-4 py-3 text-white bg-gray-600 border shadow-md font-normal rounded-full break-words">
+            {project.externalURL}
+            <ExternalLink className="text-white" />
+          </Link>
+        </div>
+      )}
+
+      {/* PROJECT CASE STUDY */}
+      {!project.hasCaseStudy ? (
         <div className="bg-yellow-50 mt-2 border-1 rounded-md p-4">
           <h2 className="text-yellow-900 text-lg font-bold py-1 capitalize">
             Case Study Unavailable
@@ -186,9 +202,7 @@ export default function Project() {
             This project does not have a detailed case study ready yet.
           </p>
         </div>
-)}
-
+      ) : null}
     </>
-
   );
 }
