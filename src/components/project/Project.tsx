@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 // ICONS
-import { Check, CheckCircle, ExternalLink, MoreHorizontal } from "lucide-react";
+import { Check, CheckCircle, Copy, MoreHorizontal } from "lucide-react";
 
 // SKELETONS
 import { Skeleton_Project } from "@/skeletons";
@@ -28,6 +28,8 @@ import {
 } from "@/components/ui/dialog"
 import { ScrollArea } from "../ui/scroll-area";
 import { Button } from "../ui/button";
+import { toast } from "sonner"
+
 
 
 export default function Project() {
@@ -186,18 +188,28 @@ export default function Project() {
 
       {/* EXTERNAL URL */}
       {project.externalURL !== null && (
-        <div className="bg-white mt-2 text-center py-8 border-1 rounded-md p-4 ">
+        <div className="bg-white mt-2 py-8 border-1 rounded-md p-3 ">
           <Button
-            onClick={() => navigator.clipboard.writeText(`${project.externalURL}`)}
-            variant="default" className="flex justify-around space-x-4 px-4 py-3 text-white bg-gray-600 border shadow-md font-normal rounded-full break-words">
-            {project.externalURL}
-            <ExternalLink className="text-white" />
+            onClick={() => {
+              navigator.clipboard.writeText(`${project.externalURL}`);
+              toast.success("Copied! You can now share or visit the link.");
+            }}
+            variant="default"
+            className="flex justify-around mx-auto space-x-8 px-6 py-6 text-white bg-gray-700 border shadow-md font-normal rounded-full break-words"
+          >
+            <div>
+              <b>Live link available</b>
+            </div>
+            <div className="flex items-center space-x-2">
+              <i>Click to copy</i>
+              <Copy className="text-white" />
+            </div>
           </Button>
-        </div>
+        </div >
       )}
 
       {/* PROJECT CASE STUDY */}
-      {!project.hasCaseStudy ? (
+      {!project.hasCaseStudy && (
         <div className="bg-yellow-50 mt-2 border-1 rounded-md p-4">
           <h2 className="text-yellow-900 text-lg font-bold py-1 capitalize">
             Case Study Unavailable
@@ -206,7 +218,7 @@ export default function Project() {
             This project does not have a detailed case study ready yet.
           </p>
         </div>
-      ) : null}
+      )}
     </>
   );
 }
