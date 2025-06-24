@@ -1,28 +1,51 @@
-import { useState } from "react"
+import React, { useState } from "react"
 
 // UI
 import { Eye, EyeOff } from "lucide-react"
 import { BarLoader } from "react-spinners"
 import { Button } from "@/components/ui/button"
+import { toast } from "sonner"
+
+// STORES
+import { useUserState } from "@/stores"
+
+// APIs
+import { login } from "@/backend/services/auth/login"
+import { account } from "@/backend/configs/configs"
 
 export default function RightSide() {
-    const [email, setEmail] = useState<string | null>(null)
-    const [password, setPassword] = useState<string | null>(null)
-    const [showPassword, setShowPassword] = useState<boolean>(false)
-    const [loginLoading, setLoginLoading] = useState<boolean>(false)
+    const [email, setEmail] = useState<string | null>(null);
+    const [password, setPassword] = useState<string | null>(null);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [loginLoading, setLoginLoading] = useState<boolean>(false);
+    const { setIsLoggedin } = useUserState();
 
-    // Handle form submission
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+    // Handle data submit
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        setLoginLoading(true);
 
         if (!email || !password) {
-            return
+            setLoginLoading(false);
+            return;
         }
 
-        setLoginLoading(true)
+        const result = await login({ email: email.toLowerCase(), password });
+        if (typeof (result) !== "object") {
+            toast.error('Login failed', {
+                description: 'Please check your email and password.',
+            });
+        } else {
+            const username = (await account.get()).name;
+            setIsLoggedin(true);
+            toast.success(`Welcome back, ${username}!`, {
+                description: "You’ve successfully logged in.",
+            });
+        }
 
-        console.log(email, password)
+        setLoginLoading(false);
     }
+
 
     return (
         <div className="flex-1 bg-white flex items-center justify-center px-8">
@@ -92,7 +115,7 @@ export default function RightSide() {
 
                     {/* Sign In Button */}
                     <Button
-                        disabled={loginLoading}
+                        disabled={loginLoading || email === null || email?.trim() === '' || password === null || password?.trim() === ''}
                         type="submit"
                         className="w-full bg-black text-white py-6 px-4 rounded-lg font-bold cursor-pointer hover:bg-gray-800 transition-colors"
                     >
