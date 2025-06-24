@@ -1,0 +1,10 @@
+export { default as auth1 } from './auth1.png';
+export { default as auth2 } from './auth2.png';
+export { default as auth3 } from './auth3.png';
+export { default as auth4 } from './auth4.png';
+export { default as auth5 } from './auth5.png';
+export { default as auth6 } from './auth6.png';
+export { default as auth7 } from './auth7.png';
+export { default as auth8 } from './auth8.png';
+export { default as auth9 } from './auth9.png';
+export { default as auth10 } from './auth10.png';
