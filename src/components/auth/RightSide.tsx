@@ -1,13 +1,15 @@
 import React, { useState } from "react"
 
 // UI
-import { Eye, EyeOff } from "lucide-react"
 import { BarLoader } from "react-spinners"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 
+// ICONS
+import { ArrowRight, Eye, EyeOff } from "lucide-react"
+
 // STORES
-import { useUserState } from "@/stores"
+import { useReset, useUserState } from "@/stores"
 
 // APIs
 import { login } from "@/backend/services/auth/login"
@@ -19,6 +21,7 @@ export default function RightSide() {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [loginLoading, setLoginLoading] = useState<boolean>(false);
     const { setIsLoggedin } = useUserState();
+    const { setDisplayResetPasswordForm } = useReset();
 
     // Handle data submit
     async function handleSubmit(e: React.FormEvent) {
@@ -33,7 +36,7 @@ export default function RightSide() {
         const result = await login({ email: email.toLowerCase(), password });
         if (typeof (result) !== "object") {
             toast.error('Login failed', {
-                description: 'Please check your email and password.',
+                description: "We couldn't find an account associated with this email address in out database. Please check your email and password."
             });
         } else {
             const username = (await account.get()).name;
@@ -108,7 +111,7 @@ export default function RightSide() {
 
                     {/* Remember Me & Forgot Password */}
                     <div className="flex items-center justify-between">
-                        <a href="#" className="text-sm text-purple-600 hover:text-purple-500">
+                        <a onClick={() => setDisplayResetPasswordForm(true)} className="cursor-pointer hover:underline text-sm text-blue-700 hover:text-blue-600">
                             Forgot Password?
                         </a>
                     </div>
@@ -123,7 +126,11 @@ export default function RightSide() {
                             color="#ffffff"
                             loading={loginLoading}
                             className="mb-[2px]"
-                        />) : 'Sign in now'}
+                        />) : (
+                            <>
+                                <p>Sign in now</p> <ArrowRight />
+                            </>
+                        )}
                     </Button>
 
                     {/* Help Text */}

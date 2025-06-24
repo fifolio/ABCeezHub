@@ -8,7 +8,7 @@ import { checkSession } from "./backend/services/auth/checkSession";
 import { useUserState } from "./stores";
 
 // PAGES
-import { AuthPage, DashboardPage, ErrorPage } from "./pages";
+import { AuthPage, DashboardPage, ErrorPage, ResetPasswordPage } from "./pages";
 
 export default function App() {
 
@@ -38,6 +38,8 @@ export default function App() {
         <div className="min-h-screen bg-gray-50">
           <Routes>
             <Route index path="/" element={isLoggedin ? <DashboardPage /> : <AuthPage />} />
+            <Route index path="reset" element={<ResetPasswordPage />} />
+
             <Route path='*' element={<ErrorPage />} />
           </Routes>
         </div>
