@@ -5,15 +5,18 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import { checkSession } from "./backend/services/auth/checkSession";
 
 // STORES
-import { useUserState } from "./stores";
+import { useSplashScreen, useUserState } from "./stores";
 
 // PAGES
-import { AuthPage, DashboardPage, ErrorPage, ResetPasswordPage, SplashPage } from "./pages";
+import { AuthPage, DashboardPage, ErrorPage, GuestResetPasswordPage, SplashPage } from "./pages";
 
 export default function App() {
 
   // Get the userState that tracks wether of User is Logged in or Not
   const { isLoggedin, setIsLoggedin } = useUserState();
+
+  // Display Splash Screen
+  const { displaySplashScreen } = useSplashScreen();
 
   // Check if there's an active session by calling the checkSession() and check it's returns
   async function sessionCheck() {
@@ -31,18 +34,18 @@ export default function App() {
   }, []);
 
 
-  if (isLoggedin === undefined) return (<SplashPage />);
+  if (isLoggedin === undefined || displaySplashScreen) return (<SplashPage />);
 
-    return (
-      <BrowserRouter>
-        <div className="min-h-screen bg-gray-50">
-          <Routes>
-            <Route index path="/" element={isLoggedin ? <DashboardPage /> : <AuthPage />} />
-            <Route index path="reset" element={<ResetPasswordPage />} />
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-50">
+        <Routes>
+          <Route index path="/" element={isLoggedin ? <DashboardPage /> : <AuthPage />} />
+          <Route index path="reset" element={isLoggedin ? <DashboardPage /> : <GuestResetPasswordPage />} />
 
-            <Route path='*' element={<ErrorPage />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    );
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
