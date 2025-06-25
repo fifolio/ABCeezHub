@@ -41,7 +41,7 @@ export default function App() {
       <div className="min-h-screen bg-gray-50">
         <Routes>
           <Route index path="/" element={isLoggedin ? <DashboardPage /> : <AuthPage />} />
-          <Route index path="reset" element={isLoggedin ? <DashboardPage /> : <GuestResetPasswordPage />} />
+          <Route path="/reset" element={isLoggedin ? <DashboardPage /> : <GuestResetPasswordPage />} />
 
           <Route path='*' element={<ErrorPage />} />
         </Routes>
