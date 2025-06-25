@@ -8,7 +8,7 @@ import { checkSession } from "./backend/services/auth/checkSession";
 import { useUserState } from "./stores";
 
 // PAGES
-import { AuthPage, DashboardPage, ErrorPage, ResetPasswordPage } from "./pages";
+import { AuthPage, DashboardPage, ErrorPage, ResetPasswordPage, SplashPage } from "./pages";
 
 export default function App() {
 
@@ -31,7 +31,7 @@ export default function App() {
   }, []);
 
 
-  if (isLoggedin === undefined) return null;
+  if (isLoggedin === undefined) return (<SplashPage />);
 
     return (
       <BrowserRouter>
