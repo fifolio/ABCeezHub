@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 
 // UI
 import { BarLoader } from "react-spinners"
@@ -25,6 +25,8 @@ import { useReset, useSplashScreen } from "@/stores"
 import completeResetPassword from "@/backend/services/auth/completeResetPassword"
 
 export default function Reset() {
+
+    const navigate = useNavigate();
 
     // Display Splash Screen
     const { setDisplaySplashScreen } = useSplashScreen();
@@ -101,6 +103,8 @@ export default function Reset() {
             setUserId(userIdParam);
             setSecret(secretParam);
             setDisplaySplashScreen(false)
+        } else {
+            navigate("/"); 
         }
 
     }, []);
