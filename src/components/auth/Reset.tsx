@@ -24,19 +24,19 @@ import resetPassword from "@/backend/services/auth/resetPassword"
 
 export default function Reset() {
     const [email, setEmail] = useState<string | null>(null);
-    const [loginLoading, setLoginLoading] = useState<boolean>(false);
+    const [ResetLoading, setResetLoading] = useState<boolean>(false);
     const { setDisplayResetPasswordForm } = useReset();
     const [openDialog, setOpenDialog] = useState(false);
 
     // Handle data submit
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-        setLoginLoading(true);
+        setResetLoading(true);
 
         const cleanedEmail = email?.toLowerCase();
 
         if (!cleanedEmail) {
-            setLoginLoading(false);
+            setResetLoading(false);
             return;
         }
 
@@ -50,7 +50,7 @@ export default function Reset() {
             setOpenDialog(true)
         }
 
-        setLoginLoading(false);
+        setResetLoading(false);
     }
 
 
@@ -78,7 +78,7 @@ export default function Reset() {
                             Email
                         </label>
                         <input
-                            disabled={loginLoading}
+                            disabled={ResetLoading}
                             id="email"
                             type="email"
                             value={email as string}
@@ -90,13 +90,13 @@ export default function Reset() {
 
                     {/*  Reset Button */}
                     <Button
-                        disabled={loginLoading || email === null || email?.trim() === ''}
+                        disabled={ResetLoading || email === null || email?.trim() === ''}
                         type="submit"
                         className="w-full bg-blue-500 text-white py-6 px-4 rounded-lg font-bold cursor-pointer hover:bg-blue-800 transition-colors"
                     >
-                        {loginLoading ? (<BarLoader
+                        {ResetLoading ? (<BarLoader
                             color="#ffffff"
-                            loading={loginLoading}
+                            loading={ResetLoading}
                             className="mb-[2px]"
                         />) : 'Send Password Reset Link'}
                     </Button>
@@ -128,7 +128,11 @@ export default function Reset() {
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                        <Button onClick={() => setOpenDialog(false)} className='w-full cursor-pointer font-bold'>
+                        <Button onClick={() => {
+                            setOpenDialog(false)
+                            setDisplayResetPasswordForm(false)
+                        }}
+                            className='w-full cursor-pointer font-bold'>
                             I Understand, Thank you!
                         </Button>
                     </AlertDialogFooter>
