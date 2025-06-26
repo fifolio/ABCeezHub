@@ -58,7 +58,7 @@ const MenuItems2 = [
     title: "Messages",
     url: "/messages",
     icon: MessagesSquare,
-    allowAccess: ['admin', 'author']
+    allowAccess: ['admin']
   },
   {
     title: "Notifications",
@@ -149,8 +149,7 @@ export function DashSidebar() {
                 })}
               </SidebarMenu>
 
-              <SidebarSeparator className="my-4 -ml-[0.5px]" />
-
+              {user.labels[0] === 'admin' && <SidebarSeparator className="my-4 -ml-[0.5px]" />}
 
               <SidebarMenu>
                 {MenuItems2.map((item) => {
