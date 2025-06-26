@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router"
 
 // ICONS
-import { BookOpen, FolderOpen, HelpCircle, MessageSquare, Settings, User2Icon, Users } from "lucide-react"
+import { Bell, BookOpen, FolderOpen, HelpCircle, MessageSquare, MessagesSquare, Settings, User2Icon, Users } from "lucide-react"
 
 // UIS
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -51,6 +51,22 @@ const MenuItems = [
     icon: MessageSquare,
     allowAccess: ['admin']
   },
+]
+
+const MenuItems2 = [
+  {
+    title: "Messages",
+    url: "/messages",
+    icon: MessagesSquare,
+    allowAccess: ['admin', 'author']
+  },
+  {
+    title: "Notifications",
+    url: "/notifications",
+    icon: Bell,
+    allowAccess: ['admin']
+
+  }
 ]
 
 // Bottom menu items
@@ -111,7 +127,7 @@ export function DashSidebar() {
           </SidebarMenu>
         </SidebarHeader>
 
-        <SidebarContent>
+        <SidebarContent >
           <SidebarGroup>
             <SidebarGroupContent>
               <SidebarMenu>
@@ -121,8 +137,30 @@ export function DashSidebar() {
                       return (
                         <SidebarMenuItem key={item.title}>
                           <SidebarMenuButton asChild>
-                            <Link to={item.url} className="flex items-center gap-2">
-                              <item.icon className="size-4" />
+                            <Link to={item.url} className="flex items-center gap-2 !py-4 text-gray-700 font-medium">
+                              <item.icon className="size-4 text-gray-700" />
+                              <span>{item.title}</span>
+                            </Link>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      )
+                    }
+                  } return null;
+                })}
+              </SidebarMenu>
+
+              <SidebarSeparator className="my-4 -ml-[0.5px]" />
+
+
+              <SidebarMenu>
+                {MenuItems2.map((item) => {
+                  for (let i = 0; i < item.allowAccess.length; i++) {
+                    if (item.allowAccess[i] === user.labels[0]) {
+                      return (
+                        <SidebarMenuItem key={item.title}>
+                          <SidebarMenuButton asChild>
+                            <Link to={item.url} className="flex items-center gap-2 !py-4 text-gray-700 font-medium">
+                              <item.icon className="size-4 text-gray-700" />
                               <span>{item.title}</span>
                             </Link>
                           </SidebarMenuButton>
@@ -141,8 +179,8 @@ export function DashSidebar() {
             {bottomItems.map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
-                  <a href={item.url} className="flex items-center gap-2">
-                    <item.icon className="size-4" />
+                  <a href={item.url} className="flex items-center gap-2 !py-4 text-gray-700 font-medium">
+                    <item.icon className="size-4 text-gray-700" />
                     <span>{item.title}</span>
                   </a>
                 </SidebarMenuButton>
@@ -150,7 +188,7 @@ export function DashSidebar() {
             ))}
           </SidebarMenu>
 
-          <SidebarSeparator />
+          <SidebarSeparator className="-ml-[0.5px]" />
 
           <SidebarMenu>
             <SidebarMenuItem>
@@ -165,8 +203,8 @@ export function DashSidebar() {
                       <AvatarFallback className="rounded-full"><User2Icon /></AvatarFallback>
                     </Avatar>
                     <div className="grid flex-1 text-left text-sm leading-tight">
-                      <span className="truncate font-semibold">{user.name} <span className="!text-[13px] font-normal text-gray-500">({user.labels[0]})</span></span>
-                      <span className="truncate text-xs text-muted-foreground">{user.email}</span>
+                      <span className="truncate font-semibold">{user.name} <span className="!text-[13px] font-normal text-gray-700">({user.labels[0]})</span></span>
+                      <span className="truncate text-xs text-gray-700">{user.email}</span>
                     </div>
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>

@@ -40,15 +40,8 @@ export default function App() {
     <BrowserRouter>
       <div className="min-h-screen bg-gray-50">
         <Routes>
-
           <Route path="/" element={isLoggedin ? <DashboardLayout children={null} /> : <AuthPage />} />
-
-          <Route
-            path="/reset"
-            element={
-              isLoggedin ? <Navigate to="/" replace /> : <GuestResetPasswordPage />
-            }
-          />
+          <Route path="/reset" element={isLoggedin ? <Navigate to="/" replace /> : <GuestResetPasswordPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
