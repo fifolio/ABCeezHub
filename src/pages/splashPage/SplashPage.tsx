@@ -2,9 +2,6 @@ import { BarLoader } from "react-spinners";
 
 
 export default function SplashPage() {
-
-    document.title = 'ABCeez Dash | Please wait...'
-
     return (
         <div className="flex w-full h-screen items-center justify-center">
             <div className="flex flex-col items-center space-y-4">
