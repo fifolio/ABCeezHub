@@ -1,29 +1,29 @@
 const teamMembers = [
-    {
-        name: "Sarah Chen",
+  {
+        name: "Chams Riahi",
         title: "CEO & Founder",
         description: "Driving the vision with strategic leadership and innovation.",
-        img: 'https://placehold.co/200'
+        img: 'https://i.ibb.co/SXjwrBF3/Chams-scaled-e1606424964641-768x768.jpg'
     },
     {
-        name: "David Lee",
-        title: "Head of Strategy",
+        name: "Wajdi Riahi",
+        title: "COO & Head of Strategy",
         description: "Architecting impactful strategies for client success.",
-        img: 'https://placehold.co/200'
+        img: 'https://i.ibb.co/rG7PPkcb/cm9gw2puj0kak5hac9ken8ozd-picture.jpg'
     },
-    {
-        name: "Emily Rodriguez",
-        title: "Lead Consultant",
-        description: "Guiding clients with expert advice and tailored solutions.",
-        img: 'https://placehold.co/200'
+    // {
+    //     name: "Emily Rodriguez",
+    //     title: "Lead Consultant",
+    //     description: "Guiding clients with expert advice and tailored solutions.",
+    //     img: 'https://placehold.co/200'
 
-    },
-    {
-        name: "Michael Jones",
-        title: "Senior Analyst",
-        description: "Uncovering insights through meticulous data analysis.",
-        img: 'https://placehold.co/200'
-    },
+    // },
+    // {
+    //     name: "Michael Jones",
+    //     title: "Senior Analyst",
+    //     description: "Uncovering insights through meticulous data analysis.",
+    //     img: 'https://placehold.co/200'
+    // },
 ];
 
 export default function OurTeam() {
