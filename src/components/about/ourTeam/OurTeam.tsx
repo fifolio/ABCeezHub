@@ -10,20 +10,7 @@ const teamMembers = [
         title: "COO & Head of Strategy",
         description: "Architecting impactful strategies for client success.",
         img: 'https://i.ibb.co/rG7PPkcb/cm9gw2puj0kak5hac9ken8ozd-picture.jpg'
-    },
-    {
-    //     name: "Emily Rodriguez",
-    //     title: "Lead Consultant",
-    //     description: "Guiding clients with expert advice and tailored solutions.",
-    //     img: 'https://placehold.co/200'
-
-    // },
-    // {
-    //     name: "Michael Jones",
-    //     title: "Senior Analyst",
-    //     description: "Uncovering insights through meticulous data analysis.",
-    //     img: 'https://placehold.co/200'
-    // },
+    }
 ];
 
 export default function OurTeam() {
