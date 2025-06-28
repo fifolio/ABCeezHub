@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/input"
 
 // BACKEND
 import { account } from '@/backend/configs/configs'
+import { Link } from "react-router"
+import { logout } from "@/backend/services/auth/logout"
 
 const actionButtons = [
     {
@@ -18,7 +20,7 @@ const actionButtons = [
         bgColor: "bg-blue-800",
         hoverColor: "hover:bg-blue-700",
         allowAccess: ['admin', 'author'],
-        onClick: () => console.log("New Article clicked"),
+        url: '/article',
     },
     {
         label: "Add Project",
@@ -26,7 +28,7 @@ const actionButtons = [
         bgColor: "bg-green-800",
         hoverColor: "hover:bg-green-700",
         allowAccess: ['admin'],
-        onClick: () => console.log("Add Project clicked"),
+        url: '/',
     },
 ];
 
@@ -59,13 +61,7 @@ const headerActions = [
                 subtitle: "Weekly report is ready for review",
             },
         ],
-    },
-    {
-        type: "button",
-        icon: <LogOut className="h-4 w-4 text-red-500" />,
-        label: "Logout",
-        onClick: () => console.log("Logging out..."),
-    },
+    }
 ];
 
 
@@ -82,13 +78,21 @@ export default function DashNavbar() {
         userData();
     }, [])
 
+    async function handleLogout() {
+        await logout().then((res) => {
+            if (res) {
+                window.location.href = '/';
+            }
+        })
+    }
+
     return (
-        <header className="w-full h-16 bg-white border-b">
-            <div className="flex items-center justify-between h-full px-4 mx-auto max-w-screen-2xl gap-4">
+        <header className="w-full h-16 bg-white border-b fixed shadow-sm">
+            <div className="flex items-center h-full px-4">
 
                 {/* Left: Search */}
-                <div className="flex flex-1 items-center gap-4">
-                    <div className="relative w-full max-w-[550px]">
+                <div className="flex flex-1 gap-4">
+                    <div className="relative w-full max-w-[500px]">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input
                             type="search"
@@ -105,14 +109,15 @@ export default function DashNavbar() {
                             if (!hasAccess) return null;
 
                             return (
-                                <Button
+                                <Link
+                                    to={item.url}
                                     key={item.label}
-                                    onClick={item.onClick}
-                                    className={`flex items-center gap-2 h-10 sm:!px-6 !px-1 rounded-md shadow cursor-pointer ${item.bgColor} ${item.hoverColor} font-bold text-white transition`}
-                                >
-                                    <item.icon className="w-4 h-4" />
-                                    {item.label}
-                                </Button>
+                                    className={`flex items-center gap-2 justify-center min-w-[155px] h-10 sm:!px-6 !px-1 rounded-md shadow cursor-pointer ${item.bgColor} ${item.hoverColor} font-bold text-white transition`}>
+                                    <div className="text-sm flex items-center space-x-2">
+                                        <item.icon className="w-4 h-4" />
+                                        <span>{item.label}</span>
+                                    </div>
+                                </Link>
                             );
                         })}
 
@@ -120,9 +125,9 @@ export default function DashNavbar() {
                 </div>
 
                 {/* Right: Icons */}
-                <div className="flex items-center gap-2">
+                <div className="flex w-[370px] gap-2">
                     {headerActions.map((action, index) => {
-                        // ✅ Check role access only if allowAccess is defined
+
                         const hasAccess =
                             !action.allowAccess || action.allowAccess.some(role => user.includes(role));
 
@@ -130,7 +135,7 @@ export default function DashNavbar() {
 
                         // Dropdown action
                         if (action.type === "dropdown") {
-                              return (
+                            return (
                                 <DropdownMenu key={index}>
                                     <DropdownMenuTrigger asChild>
                                         <Button variant="ghost" size="icon" className="relative">
@@ -165,7 +170,7 @@ export default function DashNavbar() {
                                     key={index}
                                     variant="ghost"
                                     size="icon"
-                                    onClick={action.onClick}
+                                // onClick={action.onClick}
                                 >
                                     {action.icon}
                                     <span className="sr-only">{action.label}</span>
@@ -175,6 +180,15 @@ export default function DashNavbar() {
 
                         return null;
                     })}
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="cursor-pointer"
+                        onClick={() => handleLogout()}
+                    >
+                        <LogOut className="h-4 w-4 text-red-500" />
+                        <span className="sr-only">Logout</span>
+                    </Button>
                 </div>
 
 

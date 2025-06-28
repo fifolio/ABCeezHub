@@ -11,6 +11,8 @@ type Props = {
 
 export default function DashboardLayout({ children }: Props) {
 
+  document.title = "ABCeez Dash | Dashboard";
+
   return (
     <div className="flex flex-row bg-white">
       <div className="flex">
@@ -18,7 +20,9 @@ export default function DashboardLayout({ children }: Props) {
       </div>
       <div className="flex flex-col w-full">
         <DashNavbar />
-        {children}
+        <div className="mt-16">
+          {children}
+        </div>
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import { Bell, BookOpen, FolderOpen, HelpCircle, MessageSquare, MessagesSquare, 
 
 // UIS
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -28,26 +28,26 @@ import { account } from '@/backend/configs/configs'
 const MenuItems = [
   {
     title: "Articles",
-    url: "/articles",
+    url: "/",
     icon: BookOpen,
     allowAccess: ['admin', 'author']
   },
   {
     title: "Projects",
-    url: "/projects",
+    url: "/",
     icon: FolderOpen,
     allowAccess: ['admin']
 
   },
   {
     title: "Teams",
-    url: "/teams",
+    url: "/",
     icon: Users,
     allowAccess: ['admin']
   },
   {
     title: "Client Testimonials",
-    url: "/testimonials",
+    url: "/",
     icon: MessageSquare,
     allowAccess: ['admin']
   },
@@ -56,13 +56,13 @@ const MenuItems = [
 const MenuItems2 = [
   {
     title: "Messages",
-    url: "/messages",
+    url: "/",
     icon: MessagesSquare,
     allowAccess: ['admin']
   },
   {
     title: "Notifications",
-    url: "/notifications",
+    url: "/",
     icon: Bell,
     allowAccess: ['admin']
 
@@ -73,12 +73,12 @@ const MenuItems2 = [
 const bottomItems = [
   {
     title: "Settings",
-    url: "/settings",
+    url: "/",
     icon: Settings,
   },
   {
     title: "Get Help",
-    url: "/help",
+    url: "/",
     icon: HelpCircle,
   },
 ]
@@ -118,7 +118,7 @@ export function DashSidebar() {
                     <img src="/assets/icon.png" alt="logo" />
                   </div>
                   <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-semibold">ABCeez Dash</span>
+                    <span className="truncate font-bold">ABCeez Dash <small className="text-gray-500 font-normal">(v1 beta)</small></span>
                     <span className="truncate text-xs text-muted-foreground">Dashboard</span>
                   </div>
                 </Link>
@@ -207,7 +207,7 @@ export function DashSidebar() {
                     </div>
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent
+                {/* <DropdownMenuContent
                   className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
                   side="bottom"
                   align="end"
@@ -220,7 +220,7 @@ export function DashSidebar() {
                   <DropdownMenuItem>
                     <span>Sign out</span>
                   </DropdownMenuItem>
-                </DropdownMenuContent>
+                </DropdownMenuContent> */}
               </DropdownMenu>
             </SidebarMenuItem>
           </SidebarMenu>
